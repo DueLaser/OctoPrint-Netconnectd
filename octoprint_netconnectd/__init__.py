@@ -50,7 +50,7 @@ class NetconnectdSettingsPlugin(octoprint.plugin.SettingsPlugin,
 
 	def get_template_configs(self):
 		return [
-			dict(type="settings", name="Rede Connections")
+			dict(type="settings", name="Configuracoes Wifi")
 		]
 
 	##~~ SimpleApiPlugin API
