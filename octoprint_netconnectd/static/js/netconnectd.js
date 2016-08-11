@@ -44,7 +44,7 @@ $(function() {
             var text;
 
             if (self.error()) {
-                text = gettext("Erro no netconnectd");
+                text = gettext("Erro");
             } else if (self.status.connections.ap()) {
                 text = gettext("Agindo como APA");
             } else if (self.status.link()) {
