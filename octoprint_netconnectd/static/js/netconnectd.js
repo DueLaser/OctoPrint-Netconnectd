@@ -44,27 +44,27 @@ $(function() {
             var text;
 
             if (self.error()) {
-                text = gettext("Error while talking to netconnectd, is the service running?");
+                text = gettext("Erro no netconnectd");
             } else if (self.status.connections.ap()) {
-                text = gettext("Acting as access point");
+                text = gettext("Agindo como APA");
             } else if (self.status.link()) {
                 if (self.status.connections.wired()) {
                     text = gettext("Connected via wire");
                 } else if (self.status.connections.wifi()) {
                     if (self.status.wifi.current_ssid()) {
-                        text = _.sprintf(gettext("Connected via wifi (SSID \"%(ssid)s\")"), {ssid: self.status.wifi.current_ssid()});
+                        text = _.sprintf(gettext("Conectado via wifi (SSID \"%(ssid)s\")"), {ssid: self.status.wifi.current_ssid()});
                     } else {
-                        text = gettext("Connected via wifi (unknown SSID)")
+                        text = gettext("Conectado via wifi (unknown SSID)")
                     }
                 } else {
-                    text = gettext("Connected (unknown connection)");
+                    text = gettext("Conectado (unknown connection)");
                 }
             } else {
-                text = gettext("Not connected to network");
+                text = gettext("Não Conectado a uma rede");
             }
 
             if (!self.status.wifi.present()) {
-                text += ", " + gettext("no wifi interface present")
+                text += ", " + gettext("Não existem conexões wifi disponíveis")
             }
 
             return text;
@@ -226,10 +226,10 @@ $(function() {
             if (self.status.connections.ap()) {
                 self.reconnectInProgress = true;
 
-                var reconnectText = gettext("OctoPrint is now switching to your configured Wifi connection and therefore shutting down the Access Point. I'm continuously trying to reach it at <strong>%(hostname)s</strong> but it might take a while. If you are not reconnected over the next couple of minutes, please try to reconnect to OctoPrint manually because then I was unable to find it myself.");
+                var reconnectText = gettext("Conectando na rede wifi selecionada...");
 
                 showOfflineOverlay(
-                    gettext("Reconnecting..."),
+                    gettext("Reconectando..."),
                     _.sprintf(reconnectText, {hostname: self.hostname()}),
                     self.tryReconnect
                 );
